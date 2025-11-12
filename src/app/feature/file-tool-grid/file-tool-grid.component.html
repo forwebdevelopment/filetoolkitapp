@@ -1,0 +1,13 @@
+<div class="container mt-4">
+  <div class="row gy-4">
+    <div class="col-md-4" *ngFor="let card of cards">
+      <div class="custom-card">
+        <div class="icon-container">
+          <img [src]="card.icon" alt="icon" class="icon-img">
+        </div>
+        <h5 class="card-title">{{ card.title }}</h5>
+        <p class="card-text">{{ card.description }}</p>
+      </div>
+    </div>
+  </div>
+</div>
