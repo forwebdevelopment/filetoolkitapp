@@ -1,17 +1,19 @@
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
-import { environment } from "../../environments/environment";
+import { environment } from "../../environments/environment.development";
 
 
-@Injectable()
+@Injectable(
+ {providedIn:'root'}
+)
 
 export class ApiServices{
 constructor(private http: HttpClient) {}
 
 
 
-apiUrl = environment.api;
+private apiUrl = environment.api;
 lockUnlockPdf(file: File, password: string , fileType:string ,operations:string ): Observable<any> {
     const formData = new FormData();
     formData.append('file', file, file.name);

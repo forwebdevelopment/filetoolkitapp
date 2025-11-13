@@ -7,7 +7,7 @@ import { UnlockPdfComponent } from "./feature/unlock/unlock-pdf/unlock-pdf.compo
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet,RouterLink],
+  imports: [RouterOutlet,RouterLink , ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

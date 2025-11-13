@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Title, Meta } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { ApiServices } from '../../../core/apiServices.service';
 @Component({
   selector: 'app-lock-pdf',
   imports: [CommonModule , FormsModule],
@@ -14,7 +15,7 @@ export class LockPdfComponent {
   isProcessing = false;
   lockedFileUrl: string | null = null;
 
-  constructor(private title: Title, private meta: Meta) {}
+  constructor(private title: Title, private meta: Meta , private api:ApiServices) {}
 
   ngOnInit(): void {
     this.title.setTitle('Lock PDF Online - Secure PDF with Password | Quick File Tools');
@@ -48,8 +49,16 @@ export class LockPdfComponent {
     // Simulate processing (replace with backend API call later)
     this.isProcessing = true;
     setTimeout(() => {
-      this.isProcessing = false;
-     // this.lockedFileUrl = URL.createObjectURL(this.selectedFile);
+    
+      if(this.selectedFile){
+         this.api.lockUnlockPdf(this.selectedFile,this.password,'pdf' , 'lock').subscribe({next:(value:any)=>{
+             
+            console.log(value)
+            this.isProcessing = false;
+         } , error:(err:any)=>{
+             console.log(err)
+         }})
+      }
     }, 2000);
   }
 }
