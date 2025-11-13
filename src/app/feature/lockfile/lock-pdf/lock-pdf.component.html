@@ -1,0 +1,56 @@
+<div class="lock-pdf-container">
+  <!-- SEO Heading -->
+  <h1 class="title">Lock PDF Online</h1>
+  <p class="subtitle">
+    Secure your PDF with a password — 100% free, fast, and safe.
+  </p>
+
+  <!-- Upload Section -->
+  <div class="upload-card">
+    <label class="upload-label" for="fileInput">
+      <div class="upload-area">
+        <span class="upload-icon">📄</span>
+        <p *ngIf="!selectedFile">Click to upload or drag & drop a PDF file</p>
+        <p *ngIf="selectedFile">{{ selectedFile.name }}</p>
+      </div>
+      <input
+        id="fileInput"
+        type="file"
+        accept=".pdf"
+        (change)="onFileSelected($event)"
+        hidden
+      />
+    </label>
+
+    <!-- Password Field -->
+    <div class="password-section" *ngIf="selectedFile">
+      <input
+        type="password"
+        [(ngModel)]="password"
+        placeholder="Enter password"
+        class="password-input"
+      />
+      <button
+        (click)="onLockPdf()"
+        [disabled]="isProcessing"
+        class="lock-btn"
+      >
+        {{ isProcessing ? 'Locking...' : 'Lock PDF' }}
+      </button>
+    </div>
+  </div>
+
+  <!-- Result Section -->
+  <div class="result" *ngIf="lockedFileUrl && !isProcessing">
+    <p>✅ Your PDF has been locked successfully!</p>
+    <a [href]="lockedFileUrl" download="locked.pdf" class="download-btn">
+      Download Locked PDF
+    </a>
+  </div>
+
+  <!-- Loader -->
+  <div class="loader" *ngIf="isProcessing">
+    <div class="spinner"></div>
+    <p>Locking your PDF securely...</p>
+  </div>
+</div>

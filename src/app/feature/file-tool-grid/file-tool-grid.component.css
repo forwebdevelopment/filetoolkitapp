@@ -7,6 +7,7 @@
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   height: 100%;
   margin-bottom: 20px;
+  cursor: pointer;
 }
 
 .custom-card:hover {

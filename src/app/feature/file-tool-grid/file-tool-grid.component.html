@@ -1,6 +1,7 @@
 <div class="container mt-4">
-  <div class="row gy-4">
-    <div class="col-md-4" *ngFor="let card of cards">
+  <div class="row gy-4" >
+    <div class="col-md-4" *ngFor="let card of cards" routerLink="/{{card.route}}">
+     <ng-container *ngIf="card.isPresent">
       <div class="custom-card">
         <div class="icon-container">
           <img [src]="card.icon" alt="icon" class="icon-img">
@@ -8,6 +9,7 @@
         <h5 class="card-title">{{ card.title }}</h5>
         <p class="card-text">{{ card.description }}</p>
       </div>
+      </ng-container>
     </div>
   </div>
 </div>

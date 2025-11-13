@@ -37,7 +37,7 @@
 
         <li class="nav-item">
 
-          <a class="nav-link" routerLink="/files" routerLinkActive="active">Files</a>
+          <a class="nav-link" routerLink="/filetools" routerLinkActive="active">File Tools</a>
 
         </li>
 
@@ -59,9 +59,9 @@
 
 <main class="container-fluid mt-3 mb-5">
 
-  <!-- <router-outlet></router-outlet> -->
+  <router-outlet></router-outlet>
 
-  <app-file-tool-grid></app-file-tool-grid>
+  <!-- <app-unlock-pdf></app-unlock-pdf> -->
 
 </main>
 
@@ -69,7 +69,7 @@
 
   <div class="container">
 
-    <small>© {{ "2025" }} QuickFileTools. All Rights Reserved.</small>
+    <small>© {{currentYear  }} QuickFileTools. All Rights Reserved.</small>
 
   </div>
 

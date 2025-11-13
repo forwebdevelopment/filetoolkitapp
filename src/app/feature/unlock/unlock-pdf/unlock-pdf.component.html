@@ -1,0 +1,56 @@
+<div class="unlock-pdf-container">
+  <!-- SEO heading -->
+  <h1 class="title">Unlock PDF Online</h1>
+  <p class="subtitle">
+    Remove password protection from secured PDF files instantly.
+  </p>
+
+  <!-- Upload Section -->
+  <div class="upload-card">
+    <label class="upload-label" for="fileInput">
+      <div class="upload-area">
+        <span class="upload-icon">📄</span>
+        <p *ngIf="!selectedFile">Click to upload or drag & drop a locked PDF</p>
+        <p *ngIf="selectedFile">{{ selectedFile.name }}</p>
+      </div>
+      <input
+        id="fileInput"
+        type="file"
+        accept=".pdf"
+        (change)="onFileSelected($event)"
+        hidden
+      />
+    </label>
+
+    <!-- Password Field -->
+    <div class="password-section" *ngIf="selectedFile">
+      <input
+        type="password"
+        [(ngModel)]="password"
+        placeholder="Enter PDF password"
+        class="password-input"
+      />
+      <button
+        (click)="onUnlockPdf()"
+        [disabled]="isProcessing"
+        class="unlock-btn"
+      >
+        {{ isProcessing ? 'Unlocking...' : 'Unlock PDF' }}
+      </button>
+    </div>
+  </div>
+
+  <!-- Result Section -->
+  <div class="result" *ngIf="unlockedFileUrl && !isProcessing">
+    <p>✅ PDF unlocked successfully!</p>
+    <a [href]="unlockedFileUrl" download="unlocked.pdf" class="download-btn">
+      Download Unlocked PDF
+    </a>
+  </div>
+
+  <!-- Loader -->
+  <div class="loader" *ngIf="isProcessing">
+    <div class="spinner"></div>
+    <p>Unlocking your PDF securely...</p>
+  </div>
+</div>

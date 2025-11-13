@@ -1,0 +1,101 @@
+.lock-pdf-container {
+  max-width: 600px;
+  margin: 50px auto;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  padding: 20px;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 30px;
+}
+
+.upload-card {
+  border: 2px dashed #0078d7;
+  border-radius: 12px;
+  padding: 30px;
+  transition: 0.3s ease;
+  background-color: #f9fbff;
+}
+
+.upload-card:hover {
+  background-color: #eef5ff;
+}
+
+.upload-area {
+  cursor: pointer;
+}
+
+.upload-icon {
+  font-size: 3rem;
+}
+
+.password-section {
+  margin-top: 20px;
+}
+
+.password-input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  width: 60%;
+  margin-right: 10px;
+}
+
+.lock-btn {
+  background-color: #0078d7;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.lock-btn:hover {
+  background-color: #005fa3;
+}
+
+.loader {
+  margin-top: 30px;
+}
+
+.spinner {
+  border: 5px solid #e0e0e0;
+  border-top: 5px solid #0078d7;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 10px auto;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.download-btn {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 20px;
+  background: #00a86b;
+  color: white;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.download-btn:hover {
+  background-color: #007a51;
+}
