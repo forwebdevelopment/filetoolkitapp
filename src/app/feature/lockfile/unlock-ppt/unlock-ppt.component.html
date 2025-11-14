@@ -1,0 +1,56 @@
+<div class="unlock-pdf-container">
+  <!-- SEO heading -->
+  <h1 class="title">Unlock PPT Online</h1>
+  <p class="subtitle">
+    Remove password protection from secured PPT files instantly.
+  </p>
+
+  <!-- Upload Section -->
+  <div class="upload-card">
+    <label class="upload-label" for="fileInput">
+      <div class="upload-area">
+        <span class="upload-icon">📄</span>
+        <p *ngIf="!selectedFile">Click to upload or drag & drop a locked PPT</p>
+        <p *ngIf="selectedFile">{{ selectedFile.name }}</p>
+      </div>
+      <input
+        id="fileInput"
+        type="file"
+  
+        (change)="onFileSelected($event)"
+        hidden
+      />
+    </label>
+
+    <!-- Password Field -->
+    <div class="password-section" *ngIf="selectedFile">
+      <input
+        type="password"
+        [(ngModel)]="password"
+        placeholder="Enter PPT password"
+        class="password-input"
+      />
+      <button
+        (click)="onUnlockppt()"
+        [disabled]="this.helper.isProcessing"
+        class="unlock-btn"
+      >
+        {{ this.helper.isProcessing ? 'Unlocking...' : 'Unlock PPT' }}
+      </button>
+    </div>
+  </div>
+
+  <!-- Result Section -->
+  <div class="result" *ngIf="unlockedFileUrl && !this.helper.isProcessing">
+    <p>✅ PPT unlocked successfully!</p>
+    <a [href]="unlockedFileUrl" download="unlocked.ppt" class="download-btn">
+      Download Unlocked PPT
+    </a>
+  </div>
+
+  <!-- Loader -->
+  <div class="loader" *ngIf="this.helper.isProcessing">
+    <div class="spinner"></div>
+    <p>Unlocking your PPT securely...</p>
+  </div>
+</div>
