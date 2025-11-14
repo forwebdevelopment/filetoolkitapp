@@ -32,16 +32,16 @@
       />
       <button
         (click)="onUnlockPdf()"
-        [disabled]="isProcessing"
+        [disabled]="this.helper.isProcessing"
         class="unlock-btn"
       >
-        {{ isProcessing ? 'Unlocking...' : 'Unlock PDF' }}
+        {{ this.helper.isProcessing ? 'Unlocking...' : 'Unlock PDF' }}
       </button>
     </div>
   </div>
 
   <!-- Result Section -->
-  <div class="result" *ngIf="unlockedFileUrl && !isProcessing">
+  <div class="result" *ngIf="unlockedFileUrl && !this.helper.isProcessing">
     <p>✅ PDF unlocked successfully!</p>
     <a [href]="unlockedFileUrl" download="unlocked.pdf" class="download-btn">
       Download Unlocked PDF
@@ -49,7 +49,7 @@
   </div>
 
   <!-- Loader -->
-  <div class="loader" *ngIf="isProcessing">
+  <div class="loader" *ngIf="this.helper.isProcessing">
     <div class="spinner"></div>
     <p>Unlocking your PDF securely...</p>
   </div>

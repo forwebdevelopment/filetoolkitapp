@@ -32,16 +32,16 @@
       />
       <button
         (click)="onLockPdf()"
-        [disabled]="isProcessing"
+        [disabled]="helper.isProcessing"
         class="lock-btn"
       >
-        {{ isProcessing ? 'Locking...' : 'Lock PDF' }}
+        {{ helper.isProcessing ? 'Locking...' : 'Lock PDF' }}
       </button>
     </div>
   </div>
 
   <!-- Result Section -->
-  <div class="result" *ngIf="lockedFileUrl && !isProcessing">
+  <div class="result" *ngIf="lockedFileUrl && !helper.isProcessing">
     <p>✅ Your PDF has been locked successfully!</p>
     <a [href]="lockedFileUrl" download="locked.pdf" class="download-btn">
       Download Locked PDF
@@ -49,7 +49,7 @@
   </div>
 
   <!-- Loader -->
-  <div class="loader" *ngIf="isProcessing">
+  <div class="loader" *ngIf="helper.isProcessing">
     <div class="spinner"></div>
     <p>Locking your PDF securely...</p>
   </div>

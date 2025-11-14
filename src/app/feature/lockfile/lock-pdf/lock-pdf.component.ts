@@ -3,6 +3,7 @@ import { Title, Meta } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ApiServices } from '../../../core/apiServices.service';
+import { Helper } from '../../../core/helper.service';
 @Component({
   selector: 'app-lock-pdf',
   imports: [CommonModule , FormsModule],
@@ -11,11 +12,12 @@ import { ApiServices } from '../../../core/apiServices.service';
 })
 export class LockPdfComponent {
  selectedFile: File | null = null;
+ fileName:string|undefined = "";
   password: string = '';
   isProcessing = false;
   lockedFileUrl: string | null = null;
 
-  constructor(private title: Title, private meta: Meta , private api:ApiServices) {}
+  constructor(private title: Title, private meta: Meta ,public helper:Helper) {}
 
   ngOnInit(): void {
     this.title.setTitle('Lock PDF Online - Secure PDF with Password | Quick File Tools');
@@ -30,6 +32,7 @@ export class LockPdfComponent {
     const file = event.target.files[0];
     if (file && file.type === 'application/pdf') {
       this.selectedFile = file;
+      this.fileName = this.selectedFile?.name 
       this.lockedFileUrl = null;
     } else {
       alert('Please upload a valid PDF file.');
@@ -47,18 +50,14 @@ export class LockPdfComponent {
     }
 
     // Simulate processing (replace with backend API call later)
-    this.isProcessing = true;
-    setTimeout(() => {
-    
-      if(this.selectedFile){
-         this.api.lockUnlockPdf(this.selectedFile,this.password,'pdf' , 'lock').subscribe({next:(value:any)=>{
-             
-            console.log(value)
-            this.isProcessing = false;
-         } , error:(err:any)=>{
-             console.log(err)
-         }})
+    this.helper.isProcessing = true;
+     if(this.selectedFile){
+      var istrue =   this.helper.lockUnlockFileHelper(this.selectedFile ,this.password,'PDF','lock',this.fileName)
+        if(this.helper.isProcessing){
+          this.selectedFile = null;
+        }
+
       }
-    }, 2000);
+   
   }
 }
