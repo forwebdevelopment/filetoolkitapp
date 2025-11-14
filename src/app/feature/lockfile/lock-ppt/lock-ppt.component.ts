@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Helper } from '../../../core/helper.service';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { Meta, Title } from '@angular/platform-browser';
 @Component({
   selector: 'app-lock-ppt',
   imports: [FormsModule,CommonModule],
@@ -15,9 +16,19 @@ export class LockPptComponent {
   lockedFileUrl: string | null = null;
 fileName:string|undefined
 
-constructor(public helper:Helper){
-  
-}
+
+  constructor(private title: Title, private meta: Meta ,public helper:Helper) {}
+
+  ngOnInit(): void {
+   
+this.title.setTitle('Lock PPT Online - Secure PowerPoint Files with Password | Quick File Tools');
+this.meta.updateTag({
+  name: 'description',
+  content:
+    'Protect your PowerPoint presentations (PPT/PPTX) with password encryption using our free online Lock PPT tool. Secure, fast, and easy to use.'
+});
+
+  }
 
   onFileSelected(event: any): void {
     debugger

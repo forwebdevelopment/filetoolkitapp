@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Helper } from '../../../core/helper.service';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { Meta, Title } from '@angular/platform-browser';
 @Component({
   selector: 'app-lock-word',
   imports: [FormsModule,CommonModule],
@@ -15,10 +16,19 @@ selectedFile: File | null = null;
   lockedFileUrl: string | null = null;
 fileName:string|undefined
 
-constructor(public helper:Helper){
-  
-}
 
+  constructor(private title: Title, private meta: Meta ,public helper:Helper) {}
+
+  ngOnInit(): void {
+   
+this.title.setTitle('Lock Word File Online - Secure DOC/DOCX with Password | Quick File Tools');
+this.meta.updateTag({
+  name: 'description',
+  content:
+    'Protect your Word documents (DOC/DOCX) with password encryption using our free online Lock Word tool. Secure, fast, and easy to use.'
+});
+
+  }
   onFileSelected(event: any): void {
     debugger
     const file = event.target.files[0];
