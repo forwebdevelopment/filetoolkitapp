@@ -21,7 +21,7 @@ constructor(public helper:Helper){
 
   onFileSelected(event: any): void {
     const file = event.target.files[0];
-    if (file && file.type === 'application/PPT') {
+    if (file && file.type === 'application/vnd.openxmlformats-officedocument.presentationml.presentation') {
       this.selectedFile = file;
       this.fileName = file.name
       this.unlockedFileUrl = null;

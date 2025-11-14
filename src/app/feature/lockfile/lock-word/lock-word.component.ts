@@ -12,7 +12,7 @@ export class LockWordComponent {
 selectedFile: File | null = null;
   password: string = '';
   //isProcessing = false;
-  unlockedFileUrl: string | null = null;
+  lockedFileUrl: string | null = null;
 fileName:string|undefined
 
 constructor(public helper:Helper){
@@ -20,11 +20,12 @@ constructor(public helper:Helper){
 }
 
   onFileSelected(event: any): void {
+    debugger
     const file = event.target.files[0];
-    if (file && file.type === 'application/WORD') {
+    if (file && file.type === 'application/vnd.openxmlformats-officedocument.wordprocessingml.document') {
       this.selectedFile = file;
       this.fileName = file.name
-      this.unlockedFileUrl = null;
+      this.lockedFileUrl = null;
     } else {
       alert('Please upload a valid WORD file.');
     }

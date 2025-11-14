@@ -1,6 +1,6 @@
-<div class="unlock-pdf-container">
-  <!-- SEO heading -->
-  <h1 class="title">lock PPT Online</h1>
+<div class="lock-pdf-container">
+  <!-- SEO Heading -->
+  <h1 class="title">Lock PPT Online</h1>
   <p class="subtitle">
     Secure your PPT with a password — 100% free, fast, and safe.
   </p>
@@ -10,12 +10,13 @@
     <label class="upload-label" for="fileInput">
       <div class="upload-area">
         <span class="upload-icon">📄</span>
-        <p *ngIf="!selectedFile">Click to upload or drag & drop a locked PPT</p>
+        <p *ngIf="!selectedFile">Click to upload or drag & drop a PPT file</p>
         <p *ngIf="selectedFile">{{ selectedFile.name }}</p>
       </div>
       <input
         id="fileInput"
         type="file"
+       
         (change)="onFileSelected($event)"
         hidden
       />
@@ -26,30 +27,30 @@
       <input
         type="password"
         [(ngModel)]="password"
-        placeholder="Enter PPT password"
+        placeholder="Enter password"
         class="password-input"
       />
       <button
         (click)="onUnlockppt()"
-        [disabled]="this.helper.isProcessing"
-        class="unlock-btn"
+        [disabled]="helper.isProcessing"
+        class="lock-btn"
       >
-        {{ this.helper.isProcessing ? 'Unlocking...' : 'Unlock PPT' }}
+        {{ helper.isProcessing ? 'Locking...' : 'Lock PPT' }}
       </button>
     </div>
   </div>
 
   <!-- Result Section -->
-  <div class="result" *ngIf="unlockedFileUrl && !this.helper.isProcessing">
-    <p>✅ PPT unlocked successfully!</p>
-    <a [href]="unlockedFileUrl" download="unlocked.ppt" class="download-btn">
-      Download Unlocked PPT
+  <div class="result" *ngIf="lockedFileUrl && !helper.isProcessing">
+    <p>✅ Your PPT has been locked successfully!</p>
+    <a [href]="lockedFileUrl" download="locked.docs" class="download-btn">
+      Download Locked PPT
     </a>
   </div>
 
   <!-- Loader -->
-  <div class="loader" *ngIf="this.helper.isProcessing">
+  <div class="loader" *ngIf="helper.isProcessing">
     <div class="spinner"></div>
-    <p>Unlocking your PPT securely...</p>
+    <p>Locking your PPT securely...</p>
   </div>
 </div>

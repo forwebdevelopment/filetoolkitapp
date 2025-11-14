@@ -1,4 +1,4 @@
-.unlock-pdf-container {
+.lock-pdf-container {
   max-width: 600px;
   margin: 50px auto;
   text-align: center;
@@ -22,8 +22,8 @@
   border: 2px dashed #0078d7;
   border-radius: 12px;
   padding: 30px;
+  transition: 0.3s ease;
   background-color: #f9fbff;
-  transition: 0.3s;
 }
 
 .upload-card:hover {
@@ -50,8 +50,8 @@
   margin-right: 10px;
 }
 
-.unlock-btn {
-  background-color: #00a86b;
+.lock-btn {
+  background-color: #0078d7;
   color: white;
   border: none;
   padding: 10px 18px;
@@ -61,8 +61,8 @@
   transition: 0.3s;
 }
 
-.unlock-btn:hover {
-  background-color: #007a51;
+.lock-btn:hover {
+  background-color: #005fa3;
 }
 
 .loader {
@@ -71,7 +71,7 @@
 
 .spinner {
   border: 5px solid #e0e0e0;
-  border-top: 5px solid #00a86b;
+  border-top: 5px solid #0078d7;
   border-radius: 50%;
   width: 40px;
   height: 40px;
@@ -89,7 +89,7 @@
   display: inline-block;
   margin-top: 10px;
   padding: 10px 20px;
-  background: #0078d7;
+  background: #00a86b;
   color: white;
   border-radius: 8px;
   text-decoration: none;
@@ -97,5 +97,5 @@
 }
 
 .download-btn:hover {
-  background-color: #005fa3;
+  background-color: #007a51;
 }

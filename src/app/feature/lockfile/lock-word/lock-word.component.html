@@ -1,8 +1,8 @@
-<div class="unlock-pdf-container">
-  <!-- SEO heading -->
-  <h1 class="title">lock Word Online</h1>
+<div class="lock-pdf-container">
+  <!-- SEO Heading -->
+  <h1 class="title">Lock WORD Online</h1>
   <p class="subtitle">
-    Secure your Word with a password — 100% free, fast, and safe.
+    Secure your WORD with a password — 100% free, fast, and safe.
   </p>
 
   <!-- Upload Section -->
@@ -10,13 +10,13 @@
     <label class="upload-label" for="fileInput">
       <div class="upload-area">
         <span class="upload-icon">📄</span>
-        <p *ngIf="!selectedFile">Click to upload or drag & drop a locked WORD</p>
+        <p *ngIf="!selectedFile">Click to upload or drag & drop a WORD file</p>
         <p *ngIf="selectedFile">{{ selectedFile.name }}</p>
       </div>
       <input
         id="fileInput"
         type="file"
-        
+       
         (change)="onFileSelected($event)"
         hidden
       />
@@ -27,30 +27,30 @@
       <input
         type="password"
         [(ngModel)]="password"
-        placeholder="Enter WORD password"
+        placeholder="Enter password"
         class="password-input"
       />
       <button
         (click)="onUnlockword()"
-        [disabled]="this.helper.isProcessing"
-        class="unlock-btn"
+        [disabled]="helper.isProcessing"
+        class="lock-btn"
       >
-        {{ this.helper.isProcessing ? 'Unlocking...' : 'Unlock WORD' }}
+        {{ helper.isProcessing ? 'Locking...' : 'Lock WORD' }}
       </button>
     </div>
   </div>
 
   <!-- Result Section -->
-  <div class="result" *ngIf="unlockedFileUrl && !this.helper.isProcessing">
-    <p>✅ WORD unlocked successfully!</p>
-    <a [href]="unlockedFileUrl" download="unlocked.pdf" class="download-btn">
-      Download Unlocked WORD
+  <div class="result" *ngIf="lockedFileUrl && !helper.isProcessing">
+    <p>✅ Your WORD has been locked successfully!</p>
+    <a [href]="lockedFileUrl" download="locked.docs" class="download-btn">
+      Download Locked WORD
     </a>
   </div>
 
   <!-- Loader -->
-  <div class="loader" *ngIf="this.helper.isProcessing">
+  <div class="loader" *ngIf="helper.isProcessing">
     <div class="spinner"></div>
-    <p>Unlocking your WORD securely...</p>
+    <p>Locking your WORD securely...</p>
   </div>
 </div>
