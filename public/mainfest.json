@@ -1,0 +1,21 @@
+{
+  "name": "FileMarketHub",
+  "short_name": "FMH",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#2E86DE",
+  "description": "FileMarketHub offers free and secure online PDF tools including compress, merge, split, watermark, unlock and lock PDF files.",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

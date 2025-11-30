@@ -1,0 +1,38 @@
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <url>
+    <loc>https://filemarkethub.web.app/</loc>
+    <priority>1.0</priority>
+  </url>
+
+  <url>
+    <loc>https://filemarkethub.web.app/compress-pdf</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://filemarkethub.web.app/merge-pdf</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://filemarkethub.web.app/split-pdf</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://filemarkethub.web.app/watermark-pdf</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://filemarkethub.web.app/unlock-pdf</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://filemarkethub.web.app/lock-pdf</loc>
+    <priority>0.8</priority>
+  </url>
+
+</urlset>
